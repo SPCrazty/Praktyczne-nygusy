@@ -56,7 +56,7 @@ const NavBar = () => {
                     className="
                      group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 pb-8'
                     "
-                    onClick={() => (setFlyer(!flyer), setFlyerTwo(false))}
+                    onMouseEnter={() => (setFlyer(!flyer), setFlyerTwo(false))}
                   >
                     <span>Solutions</span>
                     {/*
@@ -330,7 +330,7 @@ const NavBar = () => {
                   <button
                     type="button"
                     className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    onClick={() => (setFlyerTwo(!flyerTwo), setFlyer(false))}
+                    onMouseEnter={() => (setFlyerTwo(!flyerTwo), setFlyer(false))}
                   >
                     <span>More</span>
                     {/*
