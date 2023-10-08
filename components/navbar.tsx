@@ -1,11 +1,16 @@
 'use client'
 import 'app/globals.css'
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const NavBar = () => {
+  const router = useRouter();
     const [open, setOpen] = React.useState(false);
     const [flyer, setFlyer] = React.useState(false);
     const [flyerTwo, setFlyerTwo] = React.useState(false);
+    const loginHandler = () => {
+      router.push('api/auth/signin');
+    }
   
     return (
       <>
@@ -538,7 +543,7 @@ const NavBar = () => {
               </nav>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 <a
-                  href="#"
+                  onClick={loginHandler}
                   className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                 >
                   Sign in
