@@ -1,15 +1,20 @@
 'use client'
 import 'app/globals.css'
+import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const NavBar = () => {
+  const {status} = useSession();
   const router = useRouter();
     const [open, setOpen] = React.useState(false);
     const [flyer, setFlyer] = React.useState(false);
     const [flyerTwo, setFlyerTwo] = React.useState(false);
     const loginHandler = () => {
       router.push('api/auth/signin');
+    }
+    const logouthandler = async () => {
+      await signOut();
     }
   
     return (
@@ -542,12 +547,22 @@ const NavBar = () => {
                 </div>
               </nav>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              {status === "unauthenticated" && (
                 <a
                   onClick={loginHandler}
                   className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                 >
                   Sign in
                 </a>
+              )}  
+              {status === "authenticated" && (
+                                <a
+                                onClick={logouthandler}
+                                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                              >
+                                Wyloguj
+                              </a>
+              )}
                 <a
                   href="#"
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-pink-600 hover:bg-pink-700"
@@ -789,12 +804,21 @@ const NavBar = () => {
                   >
                     Sign up
                   </a>
+                  {status === "authenticated" && (
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                  <a onClick={logouthandler} className="text-pink-600 hover:text-pink-500">
+                    Wyloguj się
+                  </a>
+                </p>
+                  )}
+                    {status === "unauthenticated" && (
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
                     Existing customer?
-                    <a href="#" className="text-pink-600 hover:text-pink-500">
-                      Sign in
+                    <a onClick={loginHandler} className="text-pink-600 hover:text-pink-500">
+                      Zaloguj
                     </a>
                   </p>
+                    )}
                 </div>
               </div>
             </div>

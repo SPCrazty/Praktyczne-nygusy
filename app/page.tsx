@@ -12,13 +12,9 @@ export default function Home() {
   // const data = await getServerSession(authOptions);
   return (
     <main>
-      <NavBar />
       <div>
       {JSON.stringify(data)}
       </div>
-      {status === "authenticated" &&(
-        <button onClick={logouthandler}>wyloguj</button>
-      )}
     </main>
   )
 }
