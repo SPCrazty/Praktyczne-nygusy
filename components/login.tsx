@@ -24,24 +24,24 @@ const Login = (props: Props) => {
         });
     };
     return(
-       <> <div className={props.className}>
-            <div>Zaloguj się</div>
+       <div className="h-50 bg-pink-200 flex justify-center items-center p-16 border-4 border-pink-300"> 
+       <div className={props.className}>
         </div>
         {!!props.error && <p>Logowanie nie powiodło się</p>}
         <form onSubmit={onSubmit}>
-            <InputBox
+            <InputBox className="block w-full p-2 rounded  focus:ring-2 focus:ring-pink-500 focus:border-transparent focus:outline-none"
                 name="email"
-                labelText="Aders e-mail"
+                labelText="Adres e-mail"
                 onChange={(e) => (userName.current = e.target.value)}
             />
-            <InputBox
+            <InputBox className="block w-full p-2 rounded focus:ring-2 focus:ring-pink-500 focus:border-transparent focus:outline-none"
                 name="password"
                 type="password"
                 labelText="Hasło"
                 onChange={(e) => (pass.current = e.target.value)}
             />
                     <div className="flex items-center justify-center mt-2 gap-2">
-          <Link href={"/signin"} className="w-28">
+          <Link href={"/signin"} className="w-280 border border-pink-600 text-pink-600 transition hover:bg-pink-600 hover:text-white hover:border-transparent text-center p-2 rounded-md w-28">
             Sign In
           </Link>
           <Link
@@ -51,7 +51,7 @@ const Login = (props: Props) => {
             Cancel
           </Link>
         </div>
-        </form></>
+        </form></div>
     )
 };
 
