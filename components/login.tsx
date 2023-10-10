@@ -25,7 +25,7 @@ const Login = (props: Props) => {
     };
     return(
        <div className="h-50 bg-pink-200 flex justify-center items-center p-16 border-4 border-pink-300"> 
-       <div className={props.className}>
+       <div className={props.className} >
         </div>
         {!!props.error && <p>Logowanie nie powiodło się</p>}
         <form onSubmit={onSubmit}>
@@ -41,9 +41,9 @@ const Login = (props: Props) => {
                 onChange={(e) => (pass.current = e.target.value)}
             />
                     <div className="flex items-center justify-center mt-2 gap-2">
-          <Link href={"/signin"} className="w-280 border border-pink-600 text-pink-600 transition hover:bg-pink-600 hover:text-white hover:border-transparent text-center p-2 rounded-md w-28">
+          <button type="submit" className="w-280 border border-pink-600 text-pink-600 transition hover:bg-pink-600 hover:text-white hover:border-transparent text-center p-2 rounded-md w-28">
             Sign In
-          </Link>
+          </button>
           <Link
             href={props.callbackUrl ?? "/"}
             className="w-28 border border-red-600 text-center py-2 rounded-md text-red-600 transition hover:bg-red-600 hover:text-white hover:border-transparent active:scale-95"
@@ -51,7 +51,8 @@ const Login = (props: Props) => {
             Cancel
           </Link>
         </div>
-        </form></div>
+        </form>
+        </div>
     )
 };
 
