@@ -1,5 +1,4 @@
 import Login from "@/components/login";
-import NavBar from "@/components/navbar";
 import React from "react";
 
 type Props = {
