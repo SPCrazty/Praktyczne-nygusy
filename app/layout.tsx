@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from '@/components/navbar'
+import Carousel from '../components/Carousel';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
 
-        <main><AuthProvider><NavBar/>{ children }</AuthProvider></main></body>
+        <main><AuthProvider><NavBar/>{ children }</AuthProvider></main>
+        <AuthProvider><Carousel/>{ children }</AuthProvider></body>
     </html>
   )
 }
+
 
