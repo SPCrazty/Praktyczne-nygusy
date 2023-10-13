@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
 
         <main><AuthProvider><NavBar/>{ children }</AuthProvider></main>
-        <AuthProvider><Carousel/>{ children }</AuthProvider></body>
+      </body>
     </html>
   )
 }

@@ -6,7 +6,7 @@ type Props = {
 
 const Register = (props: Props) => {
     return (
-        <RegisterForm/>
+        <RegisterForm callbackUrl={props.searchParams?.callbackUrl}/>
     )
 }
 export default Register;

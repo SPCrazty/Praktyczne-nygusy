@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import NavBar from '@/components/navbar'
 import { signOut, useSession } from 'next-auth/react';
+import Slideshow from '@/components/Carousel';
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main>
       <div>
+        <Slideshow/>
       {JSON.stringify(data)}
       </div>
     </main>

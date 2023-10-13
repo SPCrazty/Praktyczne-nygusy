@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-
+import react from 'react';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from './ui/input';
@@ -10,6 +10,9 @@ import { Button } from './ui/button';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from './ui/form';
 import { useRouter } from 'next/navigation';
 
+type Props = {
+    callbackUrl?: string;
+}
 
 const FormSchema = z
   .object({
@@ -26,7 +29,7 @@ const FormSchema = z
     message: 'Password do not match',
   });
 
-const SignUpForm = () => {
+const SignUpForm = (props: Props) => {
     const router= useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -131,9 +134,15 @@ const SignUpForm = () => {
       </div>
       <p className='text-center text-sm text-gray-600 mt-2'>
         If you have an account, please&nbsp;
-        <Link className='text-blue-500 hover:underline' href='/sign-in'>
+        <Link className='text-blue-500 hover:underline' href='/signIn'>
           Sign in
         </Link>
+        <Link
+            href={props.callbackUrl ?? "/"}
+            className="w-28 border border-red-600 text-center py-2 rounded-md text-red-600 transition hover:bg-red-600 hover:text-white hover:border-transparent active:scale-95"
+          >
+            Cancel
+          </Link>
       </p>
     </Form>
   );

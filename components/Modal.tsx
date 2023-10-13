@@ -11,6 +11,7 @@ interface IProps {
   className?: string;
 }
 export const Modal = ({ show = true, children, className }: IProps) => {
+    
   return (
     <Transition appear show={show} as={Fragment}>
       <Dialog as="div" className={`relative`} onClose={() => {}}>

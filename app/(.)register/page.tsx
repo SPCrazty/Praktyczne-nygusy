@@ -8,7 +8,7 @@ type Props = {
 const Register2 = (props: Props) => {
     return (
         <Modal>
-            <RegisterForm/>
+            <RegisterForm callbackUrl={props.searchParams?.callbackUrl}/>
         </Modal>
     )
 }
